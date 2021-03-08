@@ -5,6 +5,9 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
+                echo $M2_HOME
+                echo $PATH
+                mvn clean install
                 withMaven(maven : 'maven_3_6_3') {
                     sh 'mvn clean compile'
                 }
